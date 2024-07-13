@@ -1,175 +1,1446 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية أندرلخت البلجيكي لكرة القدم </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #54308B;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #F6AE68;
-            padding: 10px;
-            text-align: center;
-            font-size: 2em;
-            color: #54308B;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo img {
-            height: 50px; /* Adjust the height as needed */
-        }
-        .container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .card {
-            background-color: #ffffff;
-            color: #54308B;
-            padding: 20px;
-            margin: 20px 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anderlecht Academy</title>
+  <style>
+    /* متغيرات الألوان والخطوط */
+    :root {
+      --st-patricks-blue: hsl(236, 57%, 28%);
+      --amaranth-purple: hsl(335, 88%, 38%);
+      --royal-blue-dark: hsl(231, 68%, 21%);
+      --chrome-yellow: hsl(39, 100%, 52%);
+      --space-cadet-1: hsl(230, 41%, 25%);
+      --space-cadet-2: hsl(230, 59%, 16%);
+      --winter-sky_50: hsla(335, 87%, 53%, 0.5);
+      --purple-navy: hsl(236, 26%, 43%);
+      --ksu-purple: hsl(275, 54%, 33%);
+      --winter-sky: hsl(335, 87%, 53%);
+      --razzmatazz: hsl(335, 87%, 51%);
+      --platinum: hsl(0, 0%, 90%);
+      --black_70: hsla(0, 0%, 0%, 0.7);
+      --rajah: hsl(29, 99%, 67%);
+      --white: hsl(0, 0%, 100%);
+
+      --gradient-1: linear-gradient(90deg,var(--royal-blue-dark) 0,var(--ksu-purple) 51%,var(--royal-blue-dark));
+      --gradient-2: linear-gradient(90deg,var(--razzmatazz) ,var(--rajah));
+
+      --ff-source-sans-pro: 'Source Sans Pro', sans-serif;
+      --ff-poppins: 'Poppins', sans-serif;
+
+      --fs-1: 4.2rem;
+      --fs-2: 3.8rem;
+      --fs-3: 3.2rem;
+      --fs-4: 2.5rem;
+      --fs-5: 2.4rem;
+      --fs-6: 2rem;
+      --fs-7: 1.8rem;
+      --fs-8: 1.5rem;
+
+      --fw-500: 500;
+      --fw-600: 600;
+      --fw-700: 700;
+
+      --radius-4: 4px;
+      --radius-12: 12px;
+
+      --section-padding: 60px;
+
+      --transition-1: 0.15s ease;
+      --transition-2: 0.35s ease;
+      --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+      --cubic-out: cubic-bezier(0.33, 0.85, 0.56, 1.02);
+
+      --shadow: 0 5px 20px 1px hsla(220, 63%, 33%, 0.1);
+    }
+
+    /* تهيئة العناصر الأساسية */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li { list-style: none; }
+
+    a { text-decoration: none; }
+
+    a,
+    img,
+    span,
+    input,
+    button,
+    ion-icon { display: block; }
+
+    button,
+    input {
+      background: none;
+      border: none;
+      font: inherit;
+    }
+
+    button { cursor: pointer; }
+
+    input { width: 100%; }
+
+    ion-icon { pointer-events: none; }
+
+    img { height: auto; }
+
+    address { font-style: normal; }
+
+    /* إعدادات الخطوط والأحجام الأساسية */
+    html {
+      font-family: var(--ff-poppins);
+      font-size: 10px;
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background-color: var(--white);
+      color: var(--purple-navy);
+      font-size: 1.6rem;
+    }
+
+    /* إعدادات شريط التمرير */
+    ::-webkit-scrollbar { width: 10px; }
+
+    ::-webkit-scrollbar-track { background-color: hsl(0, 0%, 95%); }
+
+    ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+    ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+    /* إعدادات الرأس (الهيدر) */
+    .header .btn { display: none; }
+
+    .header {
+      --color: var(--white);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-block: 2px; /* تصغير التباعد العمودي */
+      z-index: 4;
+      transition: var(--transition-1);
+
+
+
+     
+          }
+
+
+    .header.active {
+      --color: var(--st-patricks-blue);
+
+      position: fixed;
+      background-color: var(--white);
+      box-shadow: 0 2px 30px hsla(0, 0%, 0%, 0.1);
+  padding-block: 6px; /* تصغير التباعد العمودي للهيدر الثابت */
+    }
+
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--color);
+      font-family: var(--ff-source-sans-pro);
+      font-size: var(--fs-3);
+    }
+
+    .nav-open-btn {
+      color: var(--color);
+      font-size: 32px;
+      padding: 4px;
+    }
+
+
+
+
+
+
+
+    /* إعدادات شريط التنقل */
+    .navbar {
+      background-color: var(--white);
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 100%;
+      max-width: 280px;
+      min-height: 100%;
+      padding: 20px;
+      visibility: hidden;
+      z-index: 2;
+      transition: 0.25s var(--cubic-in);
+    }
+
+    .navbar.active {
+      transform: translateX(280px);
+      visibility: visible;
+      transition: 0.5s var(--cubic-out);
+    }
+
+    .navbar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 10px 30px;
+    }
+
+    .navbar-top .logo {
+      color: var(--st-patricks-blue);
+      font-size: 4.2rem;
+      font-weight: var(--fw-700);
+    }
+
+    .nav-close-btn {
+      color: var(--space-cadet-1);
+      font-size: 2.8rem;
+      padding: 4px;
+    }
+
+    .navbar-item:not(:last-child) { border-bottom: 1px solid var(--platinum); }
+
+    .navbar-link {
+      color: var(--space-cadet-1);
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      padding-block: 12px;
+    }
+
+
+
+
+    /* إعدادات التراكب */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background-color: var(--black_70);
+      z-index: 1;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-2);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* إعدادات القسم الرئيسي */
+.hero {
+  background-image: url("images/hero-bg-bottom.png"),
+                    url("images/hero-bg.png"),
+                    var(--gradient-1);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: -250px bottom, center, center; /* موقع الخلفية */
+  background-size: auto, cover, auto; /* حجم الخلفية */
+  padding-block-start: 80px; /* مساحة من الأعلى */
+  padding-block-end: 250px; /* مساحة من الأسفل */
+}
+/* تحريك الشعار بناءً على حجم الشاشة */
+@media (max-width: 768px) {
+  .about-banner {
+    padding-left: 20px; /* تقليل المسافة في الشاشات الصغيرة */
+    padding-right: 30px; /* تقليل المسافة في الشاشات الصغيرة */
+  }
+
+  .about-banner img {
+    width: 250px; /* تقليل حجم الشعار في الشاشات الصغيرة */
+    height: 200px; /* تقليل ارتفاع الشعار في الشاشات الصغيرة */
+  }
+}
+
+
+/* التحكم في العنوان الفرعي */
+.hero-subtitle {
+  font-size: 2rem; /* حجم الخط */
+  color: #f0f0f0; /* لون الخط */
+  text-align: center; /* توسيط النص */
+  margin-bottom: 10px; /* مسافة أسفل العنوان الفرعي */
+}
+
+/* التحكم في العنوان الرئيسي */
+.hero-title {
+  font-size: 4rem; /* حجم الخط */
+  color: #fff; /* لون الخط */
+  text-align: center; /* توسيط النص */
+  margin-bottom: 20px; /* مسافة أسفل العنوان */
+}
+
+/* التحكم في نص القسم */
+.hero-text {
+  font-size: 1.25rem; /* حجم الخط */
+  color: #f0f0f0; /* لون الخط */
+  text-align: center; /* توسيط النص */
+  margin-bottom: 30px; /* مسافة أسفل النص */
+}
+
+/* التحكم في زر التسجيل */
+.btn {
+  display: inline-block; /* لعرض الزر كعنصر في السطر */
+  font-size: 1.25rem; /* حجم النص في الزر */
+  padding: 52px 44px; /* حجم الزر */
+  background-color: #007bff; /* لون خلفية الزر */
+  color: #red; /* لون النص */
+  border-radius: 5px; /* زوايا دائرية للزر */
+  text-decoration: none; /* إزالة التسطير من النص */
+  margin-top: 30px; /* مسافة من أعلى الزر */
+}
+
+/* تحكم إضافي في الزر عند التمرير عليه */
+.btn:hover {
+  background-color: #0056b3; /* لون خلفية الزر عند التمرير */
+}
+
+/* التحكم في المحتوى */
+.hero-content {
+  max-width: 400px; /* زيادة عرض المحتوى */
+  margin: 0 auto; /* لتوسيط المحتوى */
+}
+
+
+
+
+
+/* إعدادات قسم فروعنا */
+.service-list {
+  display: flex; /* استخدام تصميم الفلكس لتوزيع العناصر */
+  flex-direction: column; /* تنظيم العناصر عمودياً */
+  gap: 30px; /* إضافة مسافة بين العناصر */
+}
+
+/* تصميم بطاقة الخدمة */
+.service-card {
+  text-align: center; /* محاذاة النصوص في منتصف البطاقة */
+  padding: 15px; /* إضافة تباعد داخلي */
+  background-color: var(--platinum); /* تحديد لون الخلفية */
+  box-shadow: var(--shadow); /* إضافة ظل للبطاقة */
+  border-radius: var(--radius-12); /* تحديد زاوية حواف البطاقة */
+  position: relative; /* تعيين موضع البطاقة لتحديد موضع القائمة المنسدلة */
+  cursor: pointer; /* تغيير مؤشر الفأرة إلى اليد عند التمرير */
+  display: flex; /* استخدام تصميم الفلكس */
+  align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+  justify-content: center; /* محاذاة العناصر أفقياً في المنتصف */
+  gap: 10px; /* إضافة مسافة بين الأيقونة والنص */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات ديناميكية */
+}
+
+/* تغيير لون خلفية البطاقة عند مرور الفأرة */
+.service-card:hover {
+  background-color: #e0e0e0; /* تغيير لون الخلفية عند مرور الفأرة */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* زيادة تأثير ظل عند مرور الفأرة */
+}
+
+/* تصميم أيقونة الخدمة */
+.service-card .service-icon {
+  position: absolute; /* تعيين موضع الأيقونة بشكل مطلق */
+  right: 15px; /* محاذاة الأيقونة إلى اليمين */
+  top: 50%; /* محاذاة الأيقونة عمودياً في منتصف البطاقة */
+  transform: translateY(-50%); /* تصحيح موضع الأيقونة ليكون في المنتصف */
+}
+
+/* تكبير النص في قسم "فروعنا" وجعله بولد */
+.branch-item {
+  font-size: 22px; /* تكبير حجم النص */
+  font-weight: bold; /* جعل النص عريض */
+  color: var(--st-patricks-blue); /* تحديد لون النص */
+  margin: 0; /* إزالة التباعد حول النص */
+  text-align: center; /* محاذاة النص إلى الوسط */
+  transition: color 0.3s ease; /* إضافة تأثيرات لون ديناميكية */
+}
+
+/* قائمة منسدلة */
+.dropdown-content {
+  display: none; /* إخفاء القائمة المنسدلة بشكل افتراضي */
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0); /* خلفية متدرجة من الأبيض إلى الرمادي */
+  min-width: 300px; /* زيادة الحد الأدنى لعرض القائمة */
+  max-width: 400%; /* الحد الأقصى لعرض القائمة */
+  max-height: 0; /* تحديد الارتفاع إلى 0 عند إغلاق القائمة */
+  overflow: hidden; /* إخفاء أي عناصر تتجاوز الحجم */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* إضافة ظل للقائمة المنسدلة */
+  border-radius: 8px; /* إضافة حواف دائرية */
+  z-index: 1; /* التأكد من ظهور القائمة فوق العناصر الأخرى */
+  position: absolute; /* تحديد موضع القائمة بشكل مطلق */
+  top: 100%; /* وضع القائمة أسفل البطاقة */
+  left: 50%; /* توسيط القائمة أفقيًا */
+  transform: translateX(-50%); /* تعيين القائمة في المنتصف */
+  opacity: 0; /* تعيين الشفافية إلى 0 */
+  visibility: hidden; /* إخفاء القائمة */
+  transform: scaleY(0); /* تصغير القائمة إلى 0 */
+  transform-origin: top; /* تعيين نقطة التحجيم إلى الأعلى */
+  transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.3s ease, transform 0.3s ease; /* إضافة تأثيرات ديناميكية */
+  padding: 10px; /* إضافة تباعد داخلي */
+}
+
+/* تصميم عناصر القائمة المنسدلة */
+.dropdown-content a {
+  color: #333333; /* تغيير لون النصوص في القائمة المنسدلة */
+  padding: 15px 20px; /* إضافة تباعد داخلي حول النصوص */
+  text-decoration: none; /* إزالة الخط السفلي من الروابط */
+  display: block; /* جعل كل عنصر من عناصر القائمة يظهر ككتلة */
+  font-weight: 900; /* تحديد وزن الخط */
+  font-size: 0.9em; /* حجم الخط */
+  border-radius: 4px; /* إضافة حواف دائرية للعناصر */
+  opacity: 0; /* تعيين الشفافية إلى 0 بشكل افتراضي */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* إضافة تأثيرات ديناميكية */
+}
+
+/* تصميم عنوان القسم داخل القائمة المنسدلة */
+.dropdown-content h4 {
+  color: #444444; /* لون النص */
+  padding: 10px 15px; /* تباعد داخلي */
+  margin: 0; /* إزالة التباعد الخارجي */
+  font-weight: bold; /* جعل النص عريض */
+  background-color: #dcdcdc; /* خلفية مختلفة للعناوين */
+  border-radius: 4px; /* حواف دائرية */
+  margin-bottom: 10px; /* مسافة بين العنوان والعناصر التالية */
+}
+
+/* تغيير لون النصوص عند مرور الفأرة على العناصر */
+.dropdown-content a:hover {
+  background-color: #cccccc; /* تغيير لون الخلفية عند مرور الفأرة */
+  color: #000000; /* تغيير لون النصوص عند مرور الفأرة */
+}
+
+/* إظهار القائمة المنسدلة عند الضغط على بطاقة الخدمة */
+.dropdown-content.show {
+  display: block; /* عرض القائمة المنسدلة */
+  opacity: 1; /* تعيين الشفافية إلى 1 */
+  visibility: visible; /* إظهار القائمة */
+  max-height: 800px; /* تحديد الحد الأقصى لارتفاع القائمة */
+overflow-y: auto; /* تمكين التمرير العمودي */
+  transform: scaleY(1); /* تكبير القائمة إلى الحجم الطبيعي */
+  transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.5s ease, transform 0.5s ease; /* إضافة تأثيرات ديناميكية */
+}
+
+/* إضافة فاصل بين الفروع */
+.dropdown-content a + a {
+  border-top: 2px solid #d0d0d0; /* إضافة خط بين العناصر */
+}
+
+/* إضافة أيقونة السهم في القائمة المنسدلة */
+.dropdown-content::before {
+  content: ""; /* محتوى فارغ */
+  position: absolute; /* تعيين موضع السهم بشكل مطلق */
+  top: -10px; /* وضع السهم فوق القائمة */
+  left: 50%; /* توسيط السهم أفقيًا */
+  transform: translateX(-50%); /* تعيين السهم في المنتصف */
+  width: 0; /* تعيين العرض إلى 0 */
+  height: 0; /* تعيين الارتفاع إلى 0 */
+  border-left: 12px solid transparent; /* نصف مثلث */
+  border-right: 12px solid transparent; /* نصف مثلث */
+  border-bottom: 12px solid #ffffff; /* الجزء السفلي من مثلث السهم */
+}
+
+/* تغيير شكل السهم عند تمرير الفأرة */
+.dropdown-content.show::before {
+  border-bottom-color: #e0e0e0; /* تغيير لون السهم عند فتح القائمة */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* إعدادات قسم "حول" */
+    .about-banner { margin-block-end: 30px; }
+
+    .about .section-title { margin-inline: 0; }
+
+    .about .underline::before {
+      left: 0;
+      transform: translateX(0);
+    }
+
+    .about-text {
+      font-size: var(--fs-8);
+      margin-block-end: 20px;
+    }
+
+    /* إعدادات الأزرار */
+    .btn {
+      color: var(--white);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-500);
+      background: var(--gradient-2);
+      border-radius: var(--radius-12);
+      padding: 12px 32px;
+      box-shadow: var(--shadow);
+      transition: var(--transition-1);
+    }
+
+    .btn:hover { box-shadow: 0 7px 25px hsla(22, 62%, 42%, 0.1); }
+
+    /* إعدادات العناوين */
+    .section-title {
+      color: var(--st-patricks-blue);
+      font-size: var(--fs-2);
+      text-align: center;
+      margin-block-end: 30px;
+    }
+
+    .underline {
+      width: 40px;
+      height: 4px;
+      background-color: var(--winter-sky);
+      margin-inline: auto;
+      margin-block-start: 10px;
+      margin-block-end: 20px;
+      position: relative;
+    }
+
+    .underline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 20px;
+      height: 4px;
+      background-color: var(--winter-sky_50);
+      transform: translateX(-50%);
+      transition: var(--transition-1);
+    }
+
+    /* إعدادات قسم الخدمات */
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .service-card {
+      text-align: center;
+      padding: 15px;
+      background-color: var(--platinum);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-12);
+    }
+
+    .service-title { margin-block-end: 10px; }
+
+    .service-text {
+      color: var(--space-cadet-1);
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+    }
+
+
+
+
+
+
+
+
+
+
+    /* إعدادات قسم الأسئلة المتكررة */
+    .faq-item:not(:last-child) { margin-block-end: 15px; }
+
+    .faq-text {
+      color: var(--space-cadet-1);
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+    }
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+/* إعدادات عامة للفوتر */
+.footer { font-size: var(--fs-8); text-align: center; }
+
+/* إعدادات الروابط في الفوتر */
+.footer a { color: inherit; }
+
+/* إعدادات الفوتر العلوي */
+.footer-top {
+  background-image: src("imges/footer-bg.png"), var(--gradient-1);
+  background-repeat: no-repeat;
+  background-size: auto, 200%;
+  background-position: center, center;
+  color: var(--white);
+}
+
+/* إعدادات العلامة التجارية للفوتر */
+.footer-brand { margin-block-end: 50px; }
+
+/* إعدادات شعار العلامة التجارية */
+.footer-brand .logo {
+  font-weight: var(--fw-700);
+  margin-block-end: 15px;
+}
+
+/* إعدادات النص في العلامة التجارية */
+.footer-brand .text {
+  font-size: var(--fs-8);
+  margin-block-end: 20px;
+}
+
+/* إعدادات قائمة الأيقونات الاجتماعية */
+.social-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; 
+}
+
+/* إعدادات الروابط الاجتماعية في الفوتر العلوي */
+.footer-top .social-link {
+  background-color: var(--white);
+  color: var(--winter-sky);
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+/* إعدادات الروابط الاجتماعية عند التمرير والتركيز */
+.footer-top .social-link:is(:hover, :focus) {
+  background-image: var(--gradient-2);
+  color: var(--white);
+}
+
+/* إعدادات القوائم في الفوتر باستثناء الأخيرة */
+.footer-list:not(:last-child) { margin-block-end: 25px; }
+
+/* إعدادات عناوين القوائم في الفوتر */
+.footer-list-title {
+  font-family: var(--ff-source-sans-pro);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-700);
+  margin-block-end: 15px;
+}
+
+/* إعدادات روابط الفوتر */
+.footer-link { padding-block: 5px; }
+
+/* إعدادات الروابط عند التمرير والتركيز */
+:is(.footer-link, .footer-item-link):not(address):is(:hover, :focus) { text-decoration: underline; }
+
+/* إعدادات عناصر الفوتر */
+.footer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-block: 10px;
+}
+
+/* إعدادات أيقونات عناصر الفوتر */
+.footer-item-icon {
+  background-image: var(--gradient-2);
+  padding: 13px;
+  border-radius: 50%;
+}
+
+/* إعدادات الفوتر السفلي */
+.footer-bottom {
+  background-color: var(--space-cadet-2);
+  padding: 10px;
+  text-align: center;
+  color: var(--white);
+}
+
+/* إعدادات روابط حقوق النشر */
+.copyright-link {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+/* إعدادات روابط حقوق النشر عند التمرير والتركيز */
+.copyright-link:is(:hover, :focus) { text-decoration: none; }
+
+/* إعدادات العلامة التجارية للفوتر */
+.footer-brand,
+.footer-list:not(:last-child) { margin-block-end: 0; }
+
+/* إعدادات الشبكة في الفوتر العلوي */
+.footer-top .container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  gap: 30px 50px;
+}
+
+/* إعدادات خلفية الفوتر */
+.footer {
+  background: var(--gradient-2);
+  padding-block: 20px;
+}
+
+/* إعدادات الأيقونات الاجتماعية */
+.footer .social-icon { color: var(--white); }
+
+/* إعدادات الاستجابة */
+@media (max-width: 768px) {
+  .header .btn { display: inline-block; }
+  .navbar { top: 0; left: 0; max-width: 100%; }
+  .navbar.active { transform: translateX(0); }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: var(--fs-2); }
+  .hero-text { font-size: var(--fs-8); }
+}
+
+/*-----------------------------------*\
+  #GO TO TOP
+\*-----------------------------------*/
+
+.go-top {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  background-color: var(--winter-sky);
+  color: var(--white);
+  font-size: 2rem;
+  padding: 14px;
+  border-radius: var(--radius-4);
+  box-shadow: -3px 3px 15px var(--winter-sky_50);
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.go-top.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-15px);
+}
+
+
+
+
+
+
+        .carousel {
+            position: relative;
+            max-width: 1000px; /* Adjust max-width as per your layout */
+            height: 600px; /* Adjust height as per your preference */
+            margin: 0 auto; /* Center the carousel horizontally */
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: right;
-        }
-        .card h2 {
-            margin-top: 0;
-        }
-        .footer {
-            background-color: #F6AE68;
-            padding: 10px;
-            text-align: center;
-            color: #54308B;
-            position: relative;
-        }
-        .footer a {
-            color: #54308B;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.2em;
-        }
-        .footer a:hover {
-            color: #3a2a6a;
-        }
-        .footer .social-icons {
-            margin-top: 10px;
-        }
-        .branch {
-            background-color: #FFFFFF;
-            border: 2px solid #54308B;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            padding: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            color: #54308B;
-            text-align: center;
         }
 
-        .branch:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .branch h2 {
-            color: #54308B;
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        .sub-branch a {
-            display: inline-block;
-            background-color: #F6AE68;
+        .carousel .carousel-control {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-size: 1.2em;
-            text-align: center;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 2em;
+            z-index: 100;
+            transform: translateY(-50%);
         }
 
-        .sub-branch a:hover {
-            background-color: #e99650;
+        .carousel .prev-slide {
+            left: 10px;
         }
-        .header-social-icons {
+
+        .carousel .next-slide {
+            right: 10px;
+        }
+
+        .carousel .prev-slide:hover,
+        .carousel .next-slide:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }        .container {
+            padding: 20px;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .carousel .prev-slide:hover,
+        .carousel .next-slide:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel .carousel-inner {
             display: flex;
-            gap: 5px;
+            transition: transform 0.5s ease-in-out;
         }
-        .header-social-icons a {
-            color: #54308B;
-            font-size: 0.8em;
-            text-decoration: none;
+
+        .carousel .carousel-item {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
         }
-    </style>
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .carousel .carousel-indicator {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .carousel .carousel-indicator.active {
+            background-color: white;
+        }
+
+
+
+
+
+
+
+
+
+
+
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="main/logo.png" alt="Logo">
-        </div>
-        <span>أكاديمية أندرلخت</span>
-        <div class="header-social-icons">
-            <a href="https://www.facebook.com/YourPage" target="_blank" title="فيسبوك">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/YourProfile" target="_blank" title="إنستغرام">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/01115222020" target="_blank" title="واتساب">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-    </header>
+
+
+
+
+  <!-- رأس الصفحة -->
+ 
+  <header class="header">
     <div class="container">
-        <div class="card">
-            <h2>عن الأكاديمية</h2>
-            <p>الأكاديمية تضم أكثر من ٥٠ فرعًا على مستوى محافظات جمهورية مصر العربية.</p>
+      <a href="#" class="logo">أكاديمية أندرلخت</a>
+      <button class="nav-open-btn"><ion-icon name="menu-outline"></ion-icon></button>
+    </div>
+  </header>
+
+
+
+
+
+
+  <!-- شريط التنقل -->
+  <nav class="navbar">
+    <div class="navbar-top">
+      <div class="logo">أكاديمية أندرلخت</div>
+      <!-- زر إغلاق القائمة -->
+      <button class="nav-close-btn">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </div>
+    <ul class="navbar-list">
+      <li><a href="#carousel" class="navbar-link">About</a></li>
+      <li><a href="#services" class="navbar-link">Services</a></li>
+      <li><a href="#faq" class="navbar-link">FAQ</a></li>
+      <li><a href="#contact" class="navbar-link">Contact</a></li>
+    </ul>
+  </nav>
+  </div>
+  </header>
+
+
+
+
+  <!-- تراكب -->
+  <div class="overlay"></div>
+<!-- قسم البطل -->
+<section class="hero">
+ 
+  <div class="hero-content">
+    <div class="hero-subtitle">Welcome to</div>
+    <h1 class="hero-title">Anderlecht Academy</h1>
+    <p class="hero-text">Discover our programs and join us to elevate your skills and achieve your dreams.</p>
+ <figure class="about-banner">
+    <img src="images/RSCA_Crest_white.png" width="350" height="300" loading="lazy" alt="logo"
+      class="w-80 banner-animation">
+  </figure>
+    <!-- زر التسجيل -->
+    <a href="https://forms.gle/xmRnZ5qR1QCmpsH28" class="btn">Register Now</a>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Carousel Section -->
+<section class="carousel">
+    <button class="carousel-control prev-slide" aria-label="Previous Slide">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    <div class="carousel-images">
+         <img src="images/الكباتن.jpg" alt="Slide 1" class="active">
+        <img src="images/احترف تقنيات كرة القدم.jpg" alt="Slide 2">
+        <img src="images/اعداد بدني وفني.jpg" alt="Slide 3">
+       <img src="images/حلمك يبدأ هنا.jpg" alt="Slide 4">
+      <img src="images/كارنيه طبي.jpg" alt="Slide 5">
+      <img src="images/كن جزءاً.jpg" alt="Slide 6">
+
+
+    </div>
+    <button class="carousel-control next-slide" aria-label="Next Slide">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+</section>
+
+
+
+
+
+
+
+
+<!-- قسم الفروع -->
+<section id="فروعنا" class="فروعنا">
+  <div class="container">
+    <!-- عنوان القسم -->
+    <div class="section-title">
+      <h2>فروع الأكاديمية</h2>
+      <div class="underline"></div>
+    </div>
+<!-- قائمة فروعنا -->
+<div class="service-list">
+    <!-- بطاقة منطقة الشيخ زايد -->
+    <div class="service-card" onclick="toggleDropdown('dropdown1')">
+        <h3 class="branch-item">فروع الشيخ زايد</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
         </div>
-        <div class="card">
-            <h2>برعاية وإشراف:</h2>
-            <ul>
-                <li>🟣 كابتن أحمد حسن: عميد لاعبي العالم، لاعب نادي أندرلخت البلجيكي والنادي الأهلي المصري، ومنتخب مصر.</li>
-                <li>🟣 كابتن محمد يوسف: لاعب النادي الأهلي ومنتخب مصر، والمدير الفني السابق للنادي الأهلي، والمشرف الفني لمنتخبات مصر للناشئين.</li>
-                <li>🟣 كابتن هادي خشبة: لاعب النادي الأهلي ومنتخب مصر، ومدير الكرة ومدير قطاع الكرة السابق بالنادي الأهلي.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>جميع فروع أكاديمية أندرلخت</h2>
-            <p>برجاء الضغط علي أسم الفرع لمعرفه الأسعار والمواعيد والأماكن</p>
-            <div class="branch">
-                <h2><a href="zaid.html">فروع الشيخ زايد</a></h2>
-            </div>
-            <div class="branch">
-                <h2><a href="october.html">فروع أكتوبر</a></h2>
-            </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown1" class="dropdown-content">
+            <a href="https://wa.me/p/25599188763012984/201115222020">حدائق السليمانية</a>
+            <a href="https://wa.me/p/7806749219358926/201115222020">مركز شباب زايد</a>
+            <a href="https://wa.me/p/7236789949702507/201115222020">نادي الشيخ زايد الرياضي</a>
+            <a href="https://wa.me/p/7462828110464712/201115222020">مدرسة إنسباير</a>
+            <a href="https://wa.me/p/25252981457680800/201115222020">نادي بيفرلي هيلز</a>
+            <a href="https://wa.me/p/7987731257906584/201115222020">The Address</a>
+            <a href="https://wa.me/p/7178144992297149/201115222020">Club 13</a>
+            <a href="https://wa.me/p/7287305841319149/201115222020">الكرمة سماش</a>
         </div>
     </div>
-    <footer class="footer">
-        جميع الحقوق محفوظة © 2024 أكاديمية أندرلخت
-        <div class="social-icons">
-            <a href="https://www.facebook.com/YourPage" target="_blank" title="فيسبوك">
-                <i class="fab fa-facebook-f"></i>
-                فيسبوك
-            </a>
-            <a href="https://www.instagram.com/YourProfile" target="_blank" title="إنستغرام">
-                <i class="fab fa-instagram"></i>
-                إنستغرام
-            </a>
-            <a href="https://wa.me/01115222020" target="_blank" title="واتساب">
-                <i class="fab fa-whatsapp"></i>
-                واتساب
-            </a>
+
+
+
+
+
+
+
+    <!-- بطاقة منطقة أكتوبر -->
+    <div class="service-card" onclick="toggleDropdown('dropdown2')">
+        <h3 class="branch-item">فروع أكتوبر</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
         </div>
-    </footer>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown2" class="dropdown-content">
+            <a href="https://wa.me/p/7138403469591975/201115222020">نادي النادي (أكتوبر)</a>
+            <a href="https://wa.me/p/25448798111400920/201115222020">نادي مصر التأمين (أكتوبر)</a>
+            <a href="https://wa.me/p/7046441455483447/201115222020">مدرسة رويال للغات</a>
+            <a href="https://wa.me/p/7415489455206421/201115222020">معهد الحصري</a>
+            <a href="https://wa.me/p/7520486434684710/201115222020">نادي الصيد (أكتوبر)</a>
+            <a href="https://wa.me/p/7797202660313052/201115222020">مدرسة أم المؤمنين</a>
+            <a href="https://wa.me/p/7254894954579428/201115222020">نيو كاسل</a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- بطاقة منطقة حدائق أكتوبر -->
+    <div class="service-card" onclick="toggleDropdown('dropdown3')">
+        <h3 class="branch-item">فروع حدائق أكتوبر</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown3" class="dropdown-content">
+            <a href="https://wa.me/p/7004176623022334/201115222020">سيتي يارد</a>
+            <a href="https://wa.me/p/8033160626694753/201115222020">Beta Sporting Club</a>
+            <a href="https://wa.me/p/7888222847862974/201115222020">نادي الأشجار</a>
+            <a href="https://wa.me/p/8089988677683437/201115222020">مدرسة الشويفات</a>
+            <a href="https://wa.me/p/25322820177366459/201115222020">كنز كمباوند</a>
+        </div>
+    </div>
+    
+
+
+
+
+
+    <!-- بطاقة منطقة الهرم وفيصل والمهندسين -->
+    <div class="service-card" onclick="toggleDropdown('dropdown4')">
+        <h3 class="branch-item">فروع الهرم وفيصل والمهندسين</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown4" class="dropdown-content">
+            <a href="https://wa.me/p/7528152450602033/201115222020">نادي التوفيقية</a>
+            <a href="https://wa.me/p/25176337762010041/201115222020">الأهرام للفروسية</a>
+            <a href="https://wa.me/p/7584498688274903/201115222020">مدرسة الفاروق الخاصة</a>
+            <a href="https://wa.me/p/7477504445699977/201115222020">مدرسة المستقبل الحديثة</a>
+            <a href="https://wa.me/p/7440669679395269/201115222020">أكاديمية الفنون</a>
+            <a href="https://wa.me/p/7506125856163762/201115222020">كلية التربية الرياضية</a>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- بطاقة منطقة المعادي -->
+    <div class="service-card" onclick="toggleDropdown('dropdown5')">
+        <h3 class="branch-item">فروع المعادي</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown5" class="dropdown-content">
+            <a href="https://wa.me/p/7773617409335519/201115222020">ملاعب Levels المعادي</a>
+            <a href="https://wa.me/p/7390354027685656/201115222020">مدرسة منهاتن المعادي</a>
+            <a href="https://wa.me/p/7848018071897494/201115222020">فيوتشر المعادي</a>
+            <a href="https://wa.me/p/7444684765649069/201115222020">دجلة سمارت</a>
+            <a href="https://wa.me/p/8392305957464458/201115222020">ملاعب التصنيع (حلوان)</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- بطاقة منطقة القاهرة والتجمع -->
+    <div class="service-card" onclick="toggleDropdown('dropdown6')">
+        <h3 class="branch-item">فروع القاهرة والتجمع</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown6" class="dropdown-content">
+            <a href="https://wa.me/p/7619162398151223/201115222020">نادي النادي (شيراتون)</a>
+            <a href="https://wa.me/p/7316061221845813/201115222020">نادي الطيران</a>
+            <a href="https://wa.me/p/7389740867786869/201115222020">نادي الجمارك</a>
+            <a href="https://wa.me/p/25325400983774570/201115222020">Black Ball</a>
+            <a href="https://wa.me/p/25257304460583518/201115222020">نادي مصر التأمين (المقطم)</a>
+            <a href="https://wa.me/p/7402491803176753/201115222020">المدرسة البريطانية</a>
+            <a href="https://wa.me/p/7447250108696993/201115222020">Aspire School</a>
+            <a href="https://wa.me/p/7415440215203293/201115222020">جرين هيلز الشروق</a>
+            <a href="https://wa.me/p/7652739651473407/201115222020">The Square</a>
+            <a href="https://wa.me/p/7551708314944482/201115222020">Smash Le Roi</a>
+            <a href="https://wa.me/p/8392305957464458/201115222020">ملاعب التصنيع (حلوان)</a>
+        </div>
+    </div>
+
+
+
+
+   <!-- بطاقة منطقة المحافظات -->
+    <div class="service-card" onclick="toggleDropdown('dropdown7')">
+        <h3 class="branch-item">فروع المحافظات</h3>
+        <div class="service-icon">
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <!-- القائمة المنسدلة -->
+        <div id="dropdown7" class="dropdown-content">
+            <a href="https://wa.me/p/25253637597618413/201115222020">نادي ضباط الشرطة (المنيا الجديدة)</a>
+            <a href="https://wa.me/p/7429569987134685/201115222020">(مدرسة المنيا الثانوية العسكرية) المنيا</a>
+            <a href="https://wa.me/p/7318204261562148/201115222020">أسيوط</a>
+            <a href="https://wa.me/p/7651183034927677/201115222020">نادي دمنهور الرياضي</a>
+            <a href="https://wa.me/p/7387315131382638/201115222020">الإسكندرية O Club</a>
+            <a href="https://wa.me/p/7384225488357381/201115222020">نادي شركة المياه الإسكندرية</a>
+            <a href="https://wa.me/p/6964758550291713/201115222020">نادي القوات المسلحة بني سويف</a>
+            <a href="https://wa.me/p/7467748433319946/201115222020">أستاد المنصورة</a>
+            <a href="https://wa.me/p/7106481086123323/201115222020">نادي بورتو الرياضي بورسعيد</a>
+            <a href="https://wa.me/p/26135347666052627/201115222020">نادي ماتريكس طنطا</a>
+            <a href="https://wa.me/p/8217760751573951/201115222020">السادات الملكي</a>
+            <a href="https://wa.me/p/25271268255852519/201115222020">جرين بارك السادات</a>
+            <a href="https://wa.me/p/7612297452219481/201115222020">سوهاج</a>
+            <a href="https://wa.me/p/25594038430241933/201115222020">شبين الكوم (مدرسة الألسن)</a>
+            <a href="https://wa.me/p/7596781880441275/201115222020">مركز شباب قليوب</a>
+            <a href="https://wa.me/p/7477079562418597/201115222020">المدينة الرياضية بشرم الشيخ</a>
+            <a href="https://wa.me/p/25844939781787030/201115222020">مدرسة أكسفورد طنطا</a>
+            <a href="https://wa.me/p/8259260244108006/201115222020">أستاد الطور</a>
+            <a href="https://wa.me/p/7452706114857649/201115222020">نادي بورتو الشرقية</a>
+            <a href="https://wa.me/p/25828412580137315/201115222020">سنديون</a>
+            <a href="https://wa.me/p/7810454985729350/201115222020">نادي كفر الشيخ</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+      <!-- بطاقة الخدمة 5 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <h3 class="branch-item"><a href="branch5.html">فرع الشيخ زايد 5</a></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- قسم الأسئلة المتكررة -->
+  <section id="الاسئلة الشائعة" class="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>  الأسئلة الشائعة   </h2>
+        <div class="underline"></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">What is the registration process?</h3>
+        <p class="faq-text">You can register online through our registration form.</p>
+      </div>
+
+
+      <div class="faq-item">
+        <h3 class="faq-question"></h3>
+        <p class="faq-text"></p>
+      </div>
+
+
+    </div>
+  </section>
+   </div>
+    </div>
+   </div>
+    </div>
+ 
+
+
+
+
+
+
+
+
+
+
+<section id="footer" class="footer">
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">اكاديمية أندرلخت</a>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/anderlechtacademy" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/anderlechtacademy" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://wa.me/201115222020" class="social-link">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">تواصل معنا  </p>
+          </li>
+
+          <li class="footer-item">
+
+            <div class="footer-item-icon">
+              <ion-icon name="call"></ion-icon>
+            </div>
+
+            <div>
+              <a href="tel:+201115222020" class="footer-item-link">+201115222020</a>
+              <a href="tel:+201206171717" class="footer-item-link">+201206171717</a>
+            </div>
+
+          </li>
+
+          <li class="footer-item">
+
+            <div class="footer-item-icon">
+              <ion-icon name="mail"></ion-icon>
+            </div>
+
+            <div>
+              <a href="mailto:academyanderlecht@gmail.com" class="footer-item-link">academyanderlecht</a>
+              <a href="mailto:seventeensports13@gmail.com" class="footer-item-link">seventeensports13</a>
+            </div>
+
+          </li>
+
+          <li class="footer-item">
+
+            <div class="footer-item-icon">
+              <ion-icon name="location"></ion-icon>
+            </div>
+
+            <address class="footer-item-link">
+          Arab Republic of Egypt
+            </address>
+
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 أكاديمية أندرلخت. جميع الحقوق محفوظة.</p>
+  <a href="https://wa.me/201552525365" class="social-link">
+    <p>by: AHMED SAMY</p>
+</a>
+
+    </div>
+
+  </footer>
+</section>
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top  active" aria-label="Go To Top" data-go-top>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+
+
+
+
+
+  <script>
+    // عناصر الشريط العلوي
+    const header = document.querySelector('.header');
+    const navOpenBtn = document.querySelector('.nav-open-btn');
+    const navCloseBtn = document.querySelector('.nav-close-btn');
+    const navbar = document.querySelector('.navbar');
+    const overlay = document.querySelector('.overlay');
+
+    // إضافة/إزالة فئة 'active' عند فتح/إغلاق القائمة
+    const navOpen = () => {
+      navbar.classList.add('active');
+      overlay.classList.add('active');
+    };
+
+    const navClose = () => {
+      navbar.classList.remove('active');
+      overlay.classList.remove('active');
+    };
+
+    // إضافة الأحداث إلى الأزرار والعناصر المختلفة
+    navOpenBtn.addEventListener('click', navOpen);
+    navCloseBtn.addEventListener('click', navClose);
+    overlay.addEventListener('click', navClose);
+
+    // تغيير نمط الرأس عند التمرير
+    window.addEventListener('scroll', () => {
+      window.scrollY >= 10 ? header.classList.add('active') : header.classList.remove('active');
+    });
+  </script>
+
+  <!-- تضمين مكتبة الأيقونات من Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<script>
+    // Function to toggle the dropdown content
+    function toggleDropdown(dropdownId) {
+        const dropdowns = document.querySelectorAll('.dropdown-content');
+        const selectedDropdown = document.getElementById(dropdownId);
+        
+        // Close all dropdowns
+        dropdowns.forEach(dropdown => {
+            if (dropdown !== selectedDropdown) {
+                dropdown.classList.remove('show');
+                // Reset the opacity and transform for all dropdown links
+                const links = dropdown.querySelectorAll('a');
+                links.forEach(link => {
+                    link.style.opacity = '0';
+                    link.style.transform = 'translateY(20px)';
+                });
+            }
+        });
+        
+        // Toggle the selected dropdown
+        if (selectedDropdown.classList.contains('show')) {
+            selectedDropdown.classList.remove('show');
+            // Remove the "show" class to reset the display
+            const links = selectedDropdown.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.opacity = '0';
+            });
+        } else {
+            selectedDropdown.classList.add('show');
+            // Add the "show" class to start the display
+            const links = selectedDropdown.querySelectorAll('a');
+            links.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, index * 250); // Delay each link's appearance (increase the number to slow down the writing effect)
+            });
+        }
+    }
+
+    // Close dropdowns if clicked outside
+    document.addEventListener('click', (event) => {
+        const isDropdownButton = event.target.closest('.service-card');
+        if (!isDropdownButton) {
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                dropdown.classList.remove('show');
+                const links = dropdown.querySelectorAll('a');
+                links.forEach(link => {
+                    link.style.opacity = '0';
+                    link.style.transform = 'translateY(20px)';
+                });
+            });
+        }
+    });
+</script>
+
+
+
+<script>
+    // Carousel functionality
+    const images = document.querySelectorAll('.carousel img');
+    const prevButton = document.querySelector('.prev-slide');
+    const nextButton = document.querySelector('.next-slide');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.remove('active');
+        });
+        images[index].classList.add('active');
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    function showPreviousImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+
+    // Change image every 3 seconds
+    let intervalId = setInterval(showNextImage, 3000);
+
+    // Stop the interval when the user interacts with the carousel
+    prevButton.addEventListener('click', () => {
+        showPreviousImage();
+        clearInterval(intervalId);
+        intervalId = setInterval(showNextImage, 3000); // Restart the interval
+    });
+
+    nextButton.addEventListener('click', () => {
+        showNextImage();
+        clearInterval(intervalId);
+        intervalId = setInterval(showNextImage, 3000); // Restart the interval
+    });
+
+    // Initial image display
+    showImage(currentIndex);
+</script>
+
+
+
+
+
+
 </body>
 </html>
